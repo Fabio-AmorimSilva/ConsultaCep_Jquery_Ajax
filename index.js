@@ -1,27 +1,27 @@
 let btnConsulta = document.querySelector('.btnConsulta');
 let inputCep = document.querySelector('#cep');
+let numeroCep = document.querySelector('#numeroCep');
+let logradouroCep = document.querySelector('#logradouroCep');
+let localidadeCep = document.querySelector('#localidadeCep');
+let ufCeo = document.querySelector('#ufCep');
+let tabelaCep = document.querySelector('#tableCep');
 var cep;
+
+//Esconde a tabela até que a culsta seja feita
+tabelaCep.hidden = true;
+
 
 function consultaCep(){
     cep = inputCep.value;
+    tabelaCep.hidden = false;
     $.ajax({
         url: "https://viacep.com.br/ws/" + cep + "/json/",
         type: "GET",
         success: function(response){
-            let localidade = document.createElement('ul');
-            let liCep = document.createElement('li');
-            let liLogradouro = document.createElement('li');
-            let liCidade = document.createElement('li');
-            let liUf = document.createElement('li');
-            liCep.textContent = JSON.stringify(response.cep);
-            liLogradouro.textContent = JSON.stringify(response.logradouro);
-            liCidade.textContent = JSON.stringify(response.localidade);
-            liUf.textContent = JSON.stringify(response.uf);
-            localidade.appendChild(liCep);
-            localidade.appendChild(liLogradouro);
-            localidade.appendChild(liCidade);
-            localidade.appendChild(liUf);
-            document.body.appendChild(localidade);
+            numeroCep.textContent = "Cep: " + JSON.stringify(response.cep);
+            logradouroCep.textContent = "Logradouro: " + JSON.stringify(response.logradouro);
+            localidadeCep.textContent = "Cidade: " + JSON.stringify(response.localidade);
+            ufCep.textContent = "UF: " + JSON.stringify(response.uf);
         }
     })
 

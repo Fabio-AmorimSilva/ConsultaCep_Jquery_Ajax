@@ -2,22 +2,45 @@
 <html lang="pt-br">
     <head>
         <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Consulta CEP</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="index.css">
-        <link rel="stylesheet" href="bootstrap-5.0.0-beta2-dist/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="bootstrap-5.0.0-beta2-dist/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="index.css">
         <script src="jquery-3.6.0.min.js" async defer></script>
+        <script src="index.js" async defer></script>
     </head>
     <body>
         <div class="input=group mb-3 flex-nowrap">
-            <span class="input-group-text" id="basic-addon1">Insira o cep</span>
-        <input type="text" name="cep" id="cep" class="form-control">
-            
+            <span class="input-group-text" id="basic-addon1">Consulte o seu cep      
+                <input type="text" name="cep" id="cep" class="form-control w-50">
+                <button class="btnConsulta btn btn-primary btn-dark">Consultar</button>
+            </span>
         </div>
-        <button class="btnConsulta btn btn-primary btn-dark">Consultar</button>
-        <script src="index.js" async defer></script>
+       
       
+        <div class="tableContainer w-50 start-50 translate-middle-x position-absolute">
+            <table id="tableCep" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col" class="text-center">Consulta Cep</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th id="numeroCep"></th>
+                    </tr>
+                    <tr>
+                        <td id="logradouroCep"></td>
+                    </tr>
+                    <tr>
+                        <td id="localidadeCep"></td>
+                    </tr>
+                    <tr>
+                        <td id="ufCep"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>  
     </body>
 </html>
