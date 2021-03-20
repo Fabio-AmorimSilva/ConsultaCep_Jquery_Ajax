@@ -27,5 +27,12 @@ function consultaCep(){
 
 }
 
+function enterConsultaCep(event){
+    if(event.keyCode == 13){
+        consultaCep();
+    }
+}
+
 
 btnConsulta.addEventListener('click', consultaCep);
+document.addEventListener('keyup', enterConsultaCep);
